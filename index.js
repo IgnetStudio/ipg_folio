@@ -4,7 +4,7 @@ const CARDS = document.querySelectorAll("article");
 const CONFIG = {
     proximity: 40,
     spread: 80,
-    blur: 20,
+    blur: 2,
     gap: 32,
     vertical: false,
     opacity: 0
