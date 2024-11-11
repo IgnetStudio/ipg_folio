@@ -11,10 +11,10 @@
   --gradient: conic-gradient(
     from 180deg at 50% 70%,
     var(--card) 0deg,
-    #5f4b8b 72deg,
-    #b565a7 144deg,
-    #5f4b8b 216deg,
-    #b565a7 288deg,
+    #b565a7 72deg,
+    #5f4b8b 144deg,
+    #b565a7 216deg,
+    #5f4b8b 288deg,
     var(--card) 1turn
   );
 }
@@ -55,6 +55,7 @@ body {
   position: relative;
   padding: 2rem;
   touch-action: none;
+  height: auto;
 }
 
 article {
@@ -202,7 +203,18 @@ article h2 {
   flex: 1;
   display: flex;
   align-items: center;
-  border: 1px solid var(--border);
+  border-radius: 10px;
+  border: 1px solid #b565a7;
+  background: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) border-box;
+  mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box, linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  -webkit-mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box, linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  -webkit-mask-composite: xor;
+  mask-composite: inherit;
+  border: 0;
+border-bottom: 4px solid;
+-o-border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+border-image-slice: 1;
 }
 
 .dg.ac {
