@@ -1,5 +1,5 @@
-const CONTAINER = document.querySelector(".container");
-const CARDS = document.querySelectorAll("article");
+const CONTAINER = document.querySelector(".card__wrapper");
+const CARDS = document.querySelectorAll("article.card");
 
 const CONFIG = {
     proximity: 40,

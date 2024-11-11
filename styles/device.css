@@ -8,14 +8,14 @@ body {
   overflow: hidden;
 }
 
-.responsive-container {
+.device__container {
   display: flex;
   flex-direction: column;
   width: 100vw;
   height: 100vh;
 }
 
-.device-container {
+.device__wrapper {
   height: 50vh;
 }
 
@@ -92,11 +92,12 @@ body {
   }
 }
 
-.display {
+.device__display {
   display: flex;
   align-items: stretch;
   overflow: hidden;
   width: 255px;
+  width: auto;
   height: 128px;
   border: 2px solid #383838;
   border-radius: 18px;
@@ -104,24 +105,22 @@ body {
   transition: all 550ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 @media (min-width: 480px) {
-  .display {
+  .device__display {
     box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.2);
   }
 }
 @media (min-width: 768px) {
-  .display {
-    width: 440px;
+  .device__display {
     height: 340px;
   }
 }
 @media (min-width: 1024px) {
-  .display {
-    width: 520px;
+  .device__display {
     height: 370px;
   }
 }
 
-.glass {
+.device__glass {
   position: relative;
   flex: 1 1 auto;
   display: flex;
@@ -131,22 +130,22 @@ body {
   transition: padding 550ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 @media (min-width: 768px) {
-  .glass {
+  .device__glass {
     padding: 15px 25px 15px 30px;
   }
 }
 @media (min-width: 1024px) {
-  .glass {
+  .device__glass {
     padding: 20px 10px;
   }
 }
-.glass::before,
-.glass::after {
+.device__glass::before,
+.device__glass::after {
   content: "";
   position: absolute;
   z-index: 1;
 }
-.glass::before {
+.device__glass::before {
   top: -125%;
   right: 0;
   bottom: -125%;
@@ -168,11 +167,11 @@ body {
   transition: transform 550ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 @media (min-width: 480px) {
-  .glass::before {
+  .device__glass::before {
     transform: translate(0%, -16.6666666667%) rotate(-45deg);
   }
 }
-.glass::after {
+.device__glass::after {
   top: 40px;
   bottom: 40px;
   left: 5px;
@@ -189,7 +188,7 @@ body {
   transition: all 550ms cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 @media (min-width: 768px) {
-  .glass::after {
+  .device__glass::after {
     top: 100px;
     bottom: 100px;
     right: 10px;
@@ -197,20 +196,20 @@ body {
   }
 }
 @media (min-width: 1024px) {
-  .glass::after {
+  .device__glass::after {
     right: -5px;
     left: -20px;
   }
 }
 
-.viewport {
+.device__viewport {
   position: relative;
   z-index: 0;
   flex: 1 1 auto;
   background-color: #fff;
   overflow: hidden;
 }
-.viewport::before {
+.device__viewport::before {
   content: "";
   position: absolute;
   top: 0;
@@ -254,7 +253,7 @@ body {
     right 50px top 10px;
 }
 @media (min-width: 480px) {
-  .viewport::before {
+  .device__viewport::before {
     background-size: 100% 30px, 20px 20px, 90px 90px, 90px 90px, 100px 100px,
       calc(100% - 20px) 50px, calc(100% - 60px) 50px;
     transform: rotate(0deg) translateX(0px);

@@ -4,8 +4,8 @@
   --border: hsla(220, 16%, 22%, 1);
   --card: hsla(219, 28%, 88%, 0.05);
   --color: hsla(220, 16%, 22%, 1);
-  --gradient-start: hsla(311, 35%, 55%, 1)
-  --gradient-end: hsla(259, 30%, 42%, 1)
+  --gradient-start: hsla(311, 35%, 55%, 1);
+  --gradient-end: hsla(259, 30%, 42%, 1);
   --border-width: 8px;
   --border-radius: 16px;
   --gradient: conic-gradient(
@@ -31,7 +31,7 @@
   initial-value: 0;
 }
 
-body {
+body.folio {
   background: var(--bg);
   display: grid;
   place-items: center;
@@ -43,7 +43,7 @@ body {
   font-weight: 300;
 }
 
-.container {
+.cards__wrapper {
   --spread: 60;
   display: flex;
   flex-wrap: wrap;
@@ -58,7 +58,7 @@ body {
   height: auto;
 }
 
-article {
+article.card {
   --active: 0.15;
   --start: 0;
   height: 100%;
@@ -75,19 +75,19 @@ article {
   border: 1px var(--border) solid;
 }
 
-article:is(:hover, :focus-visible) {
+article.card:is(:hover, :focus-visible) {
   z-index: 2;
 }
 
-.glows {
+.card__glows {
   pointer-events: none;
   position: absolute;
   inset: 0;
   filter: blur(calc(var(--blur) * 1px));
 }
 
-.glows::after,
-.glows::before {
+.card__glows::after,
+.card__glows::before {
   --alpha: 0;
   content: "";
   background: var(--gradient);
@@ -109,7 +109,7 @@ article:is(:hover, :focus-visible) {
   transition: opacity 1s;
 }
 
-article::before {
+article.card::before {
   position: absolute;
   inset: 0;
   border: var(--border-width) solid transparent;
@@ -136,7 +136,7 @@ article::before {
   transition: opacity 1s;
 }
 
-article::after {
+article.card::after {
   --bg-size: 100%;
   content: "";
   pointer-events: none;
@@ -166,7 +166,34 @@ article::after {
   mask-composite: intersect;
 }
 
-.badge {
+.card__thumbnail {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+  border: 1px solid #b565a7;
+  background: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) border-box;
+  mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box,
+    linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  -webkit-mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box,
+    linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  -webkit-mask-composite: xor;
+  mask-composite: inherit;
+  border: 0;
+  border-bottom: 4px solid;
+  -o-border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
+  border-image-slice: 1;
+}
+
+.dg.ac {
+  z-index: 99999 !important;
+}
+
+/* // TODO get rid off styles below */
+
+.card__badge {
   border: 2px solid var(--border);
   align-self: start;
   border-radius: 100px;
@@ -190,33 +217,10 @@ a:is(:hover, :focus-visible) {
   opacity: 1;
 }
 
-article h2 {
+article.card h2 {
   margin: 0;
   padding: 1rem 0;
   font-size: 1.5rem;
   font-weight: 500;
   text-transform: uppercase;
-}
-
-.header {
-  position: relative;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  border-radius: 10px;
-  border: 1px solid #b565a7;
-  background: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) border-box;
-  mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box, linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
-  -webkit-mask: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%) padding-box, linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
-  -webkit-mask-composite: xor;
-  mask-composite: inherit;
-  border: 0;
-border-bottom: 4px solid;
--o-border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
-border-image: linear-gradient(-90deg, #5f4b8b 0%, #b565a7 100%);
-border-image-slice: 1;
-}
-
-.dg.ac {
-  z-index: 99999 !important;
 }
